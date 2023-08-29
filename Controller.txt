@@ -1,0 +1,66 @@
+Controller
+NotFoundException
+Repository
+Service
+-------------------------
+Bảng 1 : Khoa
+Khoa
+KhoaRepository
+KhoaNotFoundException
+KhoaService
+KhoaController
+---------------------
+Bảng 2: Bộ môn
+BoMon 
+BoMonController
+BoMonNotFoundException
+BoMonRepository
+BoMonService
+--------------------
+Bảng 3: Người dùng
+NguoiDung
+NguoiDungController
+NguoiDungNotFoundException
+NguoiDungRepository
+NguoiDungService
+--------------------
+Bảng 4: Dơn Vị chủ trì
+DonViChuTri
+DonViChuTriController
+DonViChuTriNotFoundException
+DonViChuTriRepository
+DonViChuTriService
+--------------------
+bảng 5: Vai trò đề tài
+VaiTroDeTai
+VaiTroDeTaiController
+VaiTroDeTaiNotFoundException
+VaiTroDeTaiRepository
+VaiTroDeTaiService
+---------------------
+bảng 6 :Cấp đề tài
+CapDeTai
+CapDeTaiController
+CapDeTaiNotFoundException
+CapDeTaiRepository
+CapDeTaiService
+----------------------
+Bảng 7: Đề tài
+DeTai
+DeTaiController
+DeTaiNotFoundException
+DeTaiRepository
+DeTaiService
+---------------------
+Bảng 8:Quản lý đề tài
+QuanLyDeTai
+QuanLyDeTaiController
+QuanLyDeTaiNotFoundException
+QuanLyDeTaiRepository
+QuanLyDeTaiService
+--------------------
+Bảng 9: vai trò
+----------------
+Hiện tại đang có 9 bảng : 
+Ví dụ admin: được vào all trang
+còn người dùng chỉ cho phép đang kí 1 đề tài mới:

@@ -1,0 +1,118 @@
+<!DOCTYPE html >
+<html th:fragment="html_head" lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+  <title>Quản lý khoa học</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/1234.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/button.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.4.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+<style>
+  /* assets/css/styles.css */
+  .resized-image {
+    width: 60px; /* Kích thước chiều rộng mới của ảnh */
+    height: auto; /* Kích thước chiều cao mới của ảnh */
+    margin-top: -18px;
+
+  }
+  .dangnhap{
+    color: #012970;
+    font-weight: 600;
+  }
+  .dangnhapimg{
+    padding-right: 9px;
+    padding-top: 6px;
+  }
+</style>
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+  <div class="d-flex align-items-center justify-content-between">
+    <a th:href="@{/admin}" class="logo d-flex align-items-center">
+      <img  class="resized-image" src="/assets/img/1234.png" alt="">
+      <span class="d-none d-lg-block">Quản lý khoa học</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div><!-- End Logo -->
+
+ 
+
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center" sec:authorize="!isAuthenticated()">
+      <li class="nav-item dropdown pe-3">
+       
+    <a class="dropdown-item d-flex align-items-center dangnhap" th:href="@{/login}" sec:authorize="!isAuthenticated()">
+      <i class="fa-solid fa-users-line dangnhapimg"></i>
+      Đăng nhập
+  </a>
+</li>
+</ul>
+
+  <ul class="d-flex align-items-center" sec:authorize="isAuthenticated()">
+      <li class="nav-item dropdown pe-3">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <span class="d-none d-md-block dropdown-toggle ps-2"><div sec:authorize="isAuthenticated()">
+          xin chào <b><span sec:authentication="principal.fullName">password</span></b>
+
+      </div></span>
+        </a><!-- End Profile Iamge Icon -->
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li sec:authorize="isAuthenticated()">
+            <a class="dropdown-item d-flex align-items-center" th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Đăng xuất</span>
+            </a>
+            <form id="logout-form" th:action="@{/logout}" method="post" style="display: none;">
+              <!-- Các trường dữ liệu bổ sung nếu cần -->
+              <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+            </form>
+          </li>
+
+
+        </ul><!-- End Profile Dropdown Items -->
+      </li><!-- End Profile Nav -->
+
+    </ul>
+  </nav><!-- End Icons Navigation -->
+
+</header><!-- End Header -->

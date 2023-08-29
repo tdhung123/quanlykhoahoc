@@ -1,0 +1,251 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+div#slider {
+    padding-top: 0;
+}
+img.imgslider {
+    width: 100%;
+}
+/* common */
+.mt_16{
+    margin-top: 16px;
+}
+.clear{
+    clear:both;
+}
+.row{
+    
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.col{
+ 
+    float: left;
+    padding-left:8px ;
+    padding-right:8px ;
+}
+
+/* ... */
+
+#header1{
+    z-index: 1  ;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 46.5px;
+    background-image: linear-gradient(0,#FD6032,#D14721);
+    
+}
+#nav0 li {
+    
+    display: inline-block;
+   
+    position: relative;
+}
+#nav0, #nav1{
+    list-style-type: none;
+}
+#nav0>li>a{
+    text-transform: uppercase;
+    color: #fff;
+}
+#nav0 li a{
+   
+    
+    text-decoration: none;
+    display: inline-block;
+    line-height: 46.5px;
+    padding: 0 24px;
+   
+}
+#nav0 li:hover #nav1{
+    display: block;
+}
+
+#nav0 >li:hover >a{
+    color: #000!important;
+    background-color: #ccc!important;
+}
+#nav0 #nav1 li{
+   width: 100%;
+}
+#nav0 #nav1 {
+    min-width: 160px;
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    padding: 0px;
+    background-color: #fff;
+}
+#nav0 #nav1 li:hover{
+    color: #000!important;
+    background-color: #ccc!important;
+}
+#nav0 #nav1 a{
+    line-height: 38px;
+    color: #000;
+}
+#nav0 .nav2{
+    font-size: 17px;
+}
+.mobile-menu{
+    background-image: linear-gradient(0,#FD6032,#D14721);
+    color: #fff !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+.mobile-menu,
+#header1 .search-btn .nav3{
+    color: #fff;
+    line-height: 46.5px;
+    padding: 0 23px;
+}
+.mobile-menu,
+#header1 .search-btn {
+    float: right;
+    
+}
+
+#header1 #nav0 {
+    display: inline-block;
+}
+.mobile-menu:hover{
+    background: #ccc;
+}
+#header1 .search-btn:hover .nav3{
+    color: #fff!important;
+    background-color: #f44336!important;
+    cursor: pointer;
+}
+.mobile-menu i,
+#header1 .search-btn i{
+    display: inline-block;
+}
+#slider{
+    position: relative;
+    margin-top: 46.5px;
+    padding-top: 50%;
+    background: url(../w3_bad/aset/img/slider/la.jpg) top center/ cover no-repeat ;
+}
+#slider #nav4{
+    color: #fff;
+    position: absolute;
+    bottom: 47px;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    text-align: center;
+}
+#slider #nav4{
+    width: 100%;
+}
+#slider #nav4 #textslider1{
+    text-shadow: 0 0 10px #ccc;
+    font-weight: 500;
+    font-size: 24px;
+    
+}
+#slider #nav4 .textslider{
+    text-shadow: 0 0 10px #ccc;
+    font-size: 15px;
+    margin-top: 25px;
+}
+@media (max-width: 739px) {
+    #header1{
+        overflow: hidden;
+    }
+    #header1 #nav0 {
+        display: block;
+      }
+    #nav0 li{
+        display: block !important;
+    }
+    
+    #nav0 li:first-child{
+        display: inline-block !important;
+    }
+
+    #header1 .search-btn .nav3{
+        display: none;
+    }
+    #nav0 li a{
+        display: block;
+    }
+    .mobile-menu{
+        display: block;
+    }
+    #nav0 #nav1{
+        position: initial;
+     
+    }
+
+#nav0 #nav1{
+        background: #373434cc;
+}
+#nav0 #nav1 a{
+        color: #fff;
+        padding-left: 41px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+}
+#content .member .member_item{
+    width: 100%;
+    margin-top: 30px;
+}
+#content .member_img{
+    width: 60%;
+}
+.places-list .places-item{
+    width: 100%;
+}
+#content .conten_1_1_1_1{
+    margin: 0px 29px;
+}
+.row.places-list {
+    margin: 20px;
+  }
+  .col-half {
+    width: 100%;
+  }
+  .row.col-row {
+    margin-left: 19px;
+    margin-right: 20px;
+  }
+
+  .from-row{
+    margin-top: 10px;
+  }
+  .place-butter.js-buy-tickets {
+    width: 100%;
+  }
+  .submit-send {
+    width: 99%;
+  }
+  .booktour {
+    margin: 0px 26px;
+  }
+  #slider #nav4 #textslider1 {
+    text-shadow: 0 0 10px #ccc;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  #slider #nav4 {
+ 
+    bottom: 8px;
+  }
+  #slider #nav4 .textslider {
+    text-shadow: 0 0 10px #ccc;
+    font-size: 9px;
+    margin-top: 2px;
+  }
+
+}

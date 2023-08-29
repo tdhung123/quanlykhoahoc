@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<div th:replace="admin/header :: html_head"></div>
+<div th:replace="admin/sidebar :: aside"></div>
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Vai trò đề tài </h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+        <li class="breadcrumb-item">Thêm mới</li>
+        <li class="breadcrumb-item active">Vai trò đề tài</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Thêm mới vai trò</h5>
+
+            <div><h2 th:if="${page == null or page == ''}">Thêm vai trò mới</h2>
+              <h2 th:else> [[${page}]]</h2>
+            </div>
+            <div th:if="${loi}" class="alert alert-danger text-center">
+              [[${loi}]]
+            </div>
+            <form th:action="@{/vaitrodetai/luu}" method="post" th:object="${vaitrodetai}">
+
+              <input type="hidden" th:field="*{id}">
+
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">*Tên vai trò</label>
+                <input type="text"  th:field="*{tenVaiTro}"   class="form-control" />
+                <span class="text-danger" th:each="error : ${errors}" th:text="${error.defaultMessage}"></span>
+              </div>
+              <input type="submit" value="Thêm" class="btn1 btn-primary1">
+              <button type="button" class="btn btn-secondary" onclick="cancelForm()">Quay lại</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+</main>
+<div th:replace="admin/footer :: html_footer"></div>

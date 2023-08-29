@@ -1,0 +1,74 @@
+<div th:replace="admin/header :: html_head"></div>
+
+<div th:replace="admin/sidebar :: aside"></div>
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Thông tin</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/admin}">Trang chủ</a></li>
+        <li class="breadcrumb-item active">thông tin</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <div class="col-lg-12">
+        <div class="row">
+
+          <div class="col-xxl-6 col-xl-12">
+
+            <div class="card info-card customers-card">
+
+
+              <div class="card-body">
+                <h5 class="card-title">Đề tài <span>| số lượng</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-book"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 th:text="${soLuongDeTai}"></h6>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+
+
+          <!-- Customers Card -->
+          <div class="col-xxl-6 col-xl-12">
+
+            <div class="card info-card customers-card">
+
+
+
+              <div class="card-body">
+                <h5 class="card-title">Người dùng <span>| số lượng</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 th:text="${soLuongNguoi}"></h6>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- End Customers Card -->
+
+</main><!-- End #main -->
+<div th:replace="admin/footer :: html_footer"></div>

@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khoa học</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/trangchu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    xin chào <b><span sec:authentication="principal.fullName">password</span></b>
+    &nbsp;
+    <i><span sec:authentication="principal.authorities">Roles</span></i>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout" />
+    </form>
+</div>
+
+  <a href="#">Home</a>
+  <div sec:authorize="hasAnyAuthority('CREATOR', 'admin')">
+            <a th:href="@{/khoa}">Khoa</a>
+            <a th:href="@{/bomon}">Bộ Môn</a>
+            <a th:href="@{/nguoidung}">Người dùng</a>
+            <a th:href="@{/donvichutri}">Đơn vị chu trì</a>
+            <a th:href="@{/vaitrodetai}">Vai trò đề tài</a>
+  </div>
+            <a th:href="@{/capdetai}">Cấp đề tài</a>
+            <a th:href="@{/detai}">Đề tài</a>
+            <a th:href="@{/quanlydetai}">Quản lý đề tài</a>
+            <a th:href="@{/themmoidetai}">Test</a>
+
+    <div class="search-btn">
+        
+        <i  class="nav3 ti-search fa-sharp fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div id="mobile-menu" class="mobile-menu"><i class="fa-solid fa-bars"></i></i></div>
+</div>
+<script>
+  const buyBtn = document.querySelectorAll(".js-buy-tickets")
+  const modal = document.querySelector(".js-modal")
+  const modalclose =document.querySelector(".js-modal-close")
+  const modalcontainer =document.querySelector(".js-modal-container")
+  // hàm hiển thị mua vé (thêm class open  vào modal để hoạt động)
+  function showbuyticket(){
+      modal.classList.add("open")
+  } 
+  // hàm tắt hiển thị (gỡ class open vào model để tắt)
+  function showheigbuyticket(){
+      modal.classList.remove("open")
+  }
+  // lặp lại từng thẻ button và nghe hành vi click
+  for(const buyBt of buyBtn){
+      buyBt.addEventListener("click",showbuyticket)
+  }
+  // nghe hành vị click vào buttun close
+  modalclose.addEventListener("click",showheigbuyticket)
+  modal.addEventListener("click",showheigbuyticket)
+  modalcontainer.addEventListener("click",function(event){
+      event.stopPropagation()
+  })
+</script>
+
+<script>
+  var header1 = document.getElementById("header1");
+  var mobileMenu =document.getElementById("mobile-menu")
+  var headerHeight = header1.clientHeight;
+  // đóng mở mobile menu
+  mobileMenu.onclick = function(){
+      var isClosed =header1.clientHeight === headerHeight;
+      if(isClosed){
+          header1.style.height = 'auto';
+      } else{
+          header1.style.height= null;
+      }
+  }
+
+
+  
+</script>
+</body>
+</html> -->
+<div th:replace="admin/header :: html_head"></div>
+
+<div th:replace="admin/sidebar :: aside"></div>
+<div th:replace="admin/footer :: html_footer"></div>

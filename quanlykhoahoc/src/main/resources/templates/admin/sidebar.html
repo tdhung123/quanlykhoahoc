@@ -1,0 +1,88 @@
+<!doctype html>
+<html th:fragment="html_head" lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<aside id="sidebar" class="sidebar">
+
+<ul class="sidebar-nav" id="sidebar-nav">
+
+  <li class="nav-item">
+    <a class="nav-link " th:href="@{/admin}">
+      <i class="fa-solid fa-house"></i>
+      <span>Trang chủ
+          </span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+
+
+
+
+  <li class="nav-heading">Quản lý đề tài </li>
+
+  <li sec:authorize="hasAuthority('admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/khoa}">
+      <i class="fa-regular fa-building"></i>
+      <span>Khoa</span>
+    </a>
+  </li>
+
+  <li sec:authorize="hasAuthority('admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/bomon}">
+      <i class="fa-solid fa-calendar-day"></i>
+      <span>Bộ môn</span>
+    </a>
+  </li>
+
+  <li sec:authorize="hasAuthority('admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/nguoidung}">
+      <i class="bi bi-person"></i>
+      <span>Người dùng</span>
+    </a>
+  </li>
+
+  <li sec:authorize="hasAuthority('admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/donvichutri}">
+      <i class="fa-solid fa-building-flag"></i>
+      <span>Đơn vị chủ trì</span>
+    </a>
+  </li><!-- End F.A.Q Page Nav -->
+
+  <li sec:authorize="hasAuthority('admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/vaitrodetai}">
+      <i class="bi bi-envelope"></i>
+      <span>Vai trò đề tài</span>
+    </a>
+  </li><!-- End Contact Page Nav -->
+
+  <li sec:authorize="hasAuthority('admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/capdetai}">
+      <i class="fa-solid fa-ranking-star"></i>
+      <span>Cấp đề tài</span>
+    </a>
+  </li><!-- End Register Page Nav -->
+
+  <li  class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/detai}">
+      <i class="fa-solid fa-diagram-project"></i>
+      <span style="font-weight: bold;">Đề tài</span>
+    </a>
+  </li><!-- End Login Page Nav -->
+  <li sec:authorize="hasAnyAuthority('tham gia đề tài', 'admin')" class="nav-item">
+    <a class="nav-link collapsed" th:href="@{/thongke}">
+      <i class="fa-solid fa-square-poll-vertical"></i>
+      <span style="font-weight: bold;">Thống kê</span>
+    </a>
+  </li><!-- End Login Page Nav -->
+
+
+</ul></aside>
+</body>
+</html>

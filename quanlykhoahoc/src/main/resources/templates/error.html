@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<div th:replace="admin/header :: html_head"></div>
+<div th:replace="admin/sidebar :: aside"></div>
+<style>
+    .imgtext{
+        position: absolute;
+    top: 481px;
+    left: 144px;
+    font-size: 29px;
+    color: #ffF;
+    }
+</style>
+<main id="main" class="main">
+  
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+  
+          <div class="card">
+            <div class="card-body">
+                <img src="/error/404.jpg" alt="">
+                <p class="imgtext">Tự động về lại trang chủ sau <span id="countdown">5</span>s</p>
+             
+  
+            </div>
+          </div>
+  
+        </div>
+  
+  
+      </div>
+    </section>
+  </main>
+  <script type="text/javascript">
+    let countdown = 5; // Initial countdown value
+    
+    function updateCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        countdownElement.innerText = countdown;
+        
+        if (countdown === 0) {
+            window.location.href = '/admin';
+        } else {
+            countdown--;
+            setTimeout(updateCountdown, 1000); // Update every 1 second
+        }
+    }
+    
+    // Start the countdown when the page loads
+    window.onload = function () {
+        updateCountdown();
+    };
+</script>
+<div th:replace="admin/footer :: html_footer"></div>

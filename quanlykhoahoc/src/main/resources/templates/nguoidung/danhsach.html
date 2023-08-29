@@ -1,0 +1,107 @@
+<div th:replace="admin/header :: html_head"></div>
+<div th:replace="admin/sidebar :: aside"></div>
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Người dùng</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/admin}">trang chủ</a></li>
+        <li class="breadcrumb-item">Bảng</li>
+        <li class="breadcrumb-item active">Người dùng</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  <section class="section">
+
+
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Danh sách người dùng</h5>
+          <div class="mt-3 mb-3"><a class="themmoi1" th:href="@{/nguoidung/themmoi}">Thêm mới</a></div>
+          <div class="mt-3 mb-3"><a class="themmoi2" th:href="@{/nguoidung/file}">Nhập file Excel</a></div>
+          <div th:if="${message}" class="alert alert-danger text-center">
+            [[${message}]]
+          </div>
+          <div th:if="${message1}" class="alert alert-success text-center">
+            [[${message1}]]
+          </div>
+          <!-- Table with stripped rows -->
+          <table id="myTable" class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Mã người dùng</th>
+              <th scope="col">Họ Và Tên</th>
+              <th scope="col">Ngày sinh</th>
+              <th scope="col">Đơn vị công tác</th>
+              <th scope="col">Khoa</th>
+              <th scope="col">Bộ môn</th>
+              <th scope="col">Email</th>
+              <th scope="col">Số điện thoại</th>
+              <th scope="col">vai trò</th>
+              <th scope="col">Chức năng</th>
+            </tr>
+            </thead>
+
+            <tr th:each="nguoidung,rowNumber : ${danhsachnguoidung}">
+              <td style="font-weight: bold;" th:text="${rowNumber.index + 1}"></td>
+              <td th:text="${nguoidung.maNguoiDung}"></td>
+              <td th:text="${nguoidung.hoVaTen}"></td>
+              <td th:text="${nguoidung.ngaySinh}"></td>
+              <td th:text="${nguoidung.donViCongTac}"></td>
+              <td th:text="${nguoidung != null and nguoidung.boMon != null and nguoidung.boMon.khoa != null ? nguoidung.boMon.khoa.tenKhoa : ''}"></td>
+              <td th:text="${nguoidung != null and nguoidung.boMon != null ? nguoidung.boMon.tenBoMon : ''}"></td>
+
+              <td th:text="${nguoidung.email}"></td>
+              <td th:text="${nguoidung.soDienThoai}"></td>
+              <td th:text="${nguoidung.vaiTros}"></td>
+              <td>
+                <a th:href="@{'/nguoidung/sua/' + ${nguoidung.id}}"><i class="fa-regular fa-pen-to-square editql"></i></a>
+                <a th:href="@{'/nguoidung/xoa/' + ${nguoidung.id}}"><i class="fa-solid fa-trash deleteql"></i></a>
+              </td>
+            </tr>
+          </table>
+
+
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $('#myTable').DataTable({
+            "pageLength": 100,
+            "language": {
+              "sProcessing": "Đang xử lý...",
+              "sLengthMenu": "Xem _MENU_ mục",
+              "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+              "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+              "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+              "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+              "sInfoPostFix": "",
+              "sSearch": "Tìm:",
+              "sUrl": "",
+              "oPaginate": {
+                "sFirst": "Đầu",
+                "sPrevious": "Trước",
+                "sNext": "Tiếp",
+                "sLast": "Cuối"
+              }
+            }
+          });
+        });
+      </script>
+
+
+
+
+    </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+<div th:replace="admin/footer :: html_footer"></div>

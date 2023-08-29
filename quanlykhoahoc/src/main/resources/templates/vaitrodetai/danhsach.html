@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<div th:replace="admin/header :: html_head"></div>
+<div th:replace="admin/sidebar :: aside"></div>
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Vai trò đề tài</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">trang chủ</a></li>
+        <li class="breadcrumb-item">Bảng</li>
+        <li class="breadcrumb-item active">Vai trò đề tài</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+
+
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Danh sách các vai trò</h5>
+          <div class="mt-3 mb-3"><a class="themmoi1" th:href="@{/vaitrodetai/themmoi}">Thêm mới</a></div>
+          <div th:if="${message}" class="alert alert-danger text-center">
+            [[${message}]]
+          </div>
+          <div th:if="${message1}" class="alert alert-success text-center">
+            [[${message1}]]
+          </div>
+          <!-- Table with stripped rows -->
+          <table id="myTable" class="table table-striped">
+            <thead>
+            <tr>
+              <th>Tên Vai Trò</th>
+              <th>Chức năng</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vaitro : ${danhsachvaitro}">
+              <td th:text="${vaitro.tenVaiTro}"></td>
+              <td>
+                <a th:href="@{'/vaitrodetai/sua/' + ${vaitro.id}}"><i class="fa-regular fa-pen-to-square editql"></i></a>
+                <a th:href="@{'/vaitrodetai/xoa/' + ${vaitro.id}}"><i class="fa-solid fa-trash deleteql"></i></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $('#myTable').DataTable({
+            "pageLength": 100,
+            "language": {
+              "sProcessing": "Đang xử lý...",
+              "sLengthMenu": "Xem _MENU_ mục",
+              "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+              "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+              "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+              "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+              "sInfoPostFix": "",
+              "sSearch": "Tìm:",
+              "sUrl": "",
+              "oPaginate": {
+                "sFirst": "Đầu",
+                "sPrevious": "Trước",
+                "sNext": "Tiếp",
+                "sLast": "Cuối"
+              }
+            }
+          });
+        });
+      </script>
+
+
+
+
+    </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+<div th:replace="admin/footer :: html_footer"></div>

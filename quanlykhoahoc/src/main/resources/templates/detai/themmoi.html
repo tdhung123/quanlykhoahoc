@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/button.css" />
+    <meta charset="UTF-8">
+    <title>Thêm bộ môn mới</title>
+</head>
+<body>
+<div class="container">
+    <h2>Thêm bộ môn mới</h2>
+    <div th:if="${loi}" class="alert alert-danger text-center">
+        [[${loi}]]
+    </div>
+    <form th:action="@{/detai/luu}" method="post" enctype="multipart/form-data" th:object="${detai}">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Cấp đề tài</label>
+            <select th:field="*{capDeTai}" class="form-control" required>
+                <option value="">-- Chọn cấp đề tài --</option>
+                <option th:each="capdetai : ${danhSachCapDeTai}" th:value="${capdetai.id}" th:text="${capdetai.tenCapDeTai}"></option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Tên đề tài</label>
+            <input type="text" th:field="*{tenDeTai}" class="form-control" />
+
+            <span class="text-danger" th:if="${tenDeTaiError}" th:text="${tenDeTaiError}"></span>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Mã số</label>
+            <input type="text" th:field="*{maSo}" class="form-control" />
+            <span class="text-danger" th:if="${maSoError}" th:text="${maSoError}"></span>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Thông tin đề tài </label>
+            <input type="text" th:field="*{thongTinDeTai}" class="form-control" />
+            <span class="text-danger" th:if="${thongTinDeTaiError}" th:text="${thongTinDeTaiError}"></span>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Kinh phí</label>
+            <input type="number"  th:field="*{kinhPhi}" class="form-control" />
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Thời gian bắt đầu</label>
+            <input type="date"  th:field="*{thoiGianBatDau}" class="form-control" />
+            <span class="text-danger" th:if="${thoiGianBatDauError}" th:text="${thoiGianBatDauError}"></span>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Thời gian kết thúc</label>
+            <input type="date"  th:field="*{thoiGianKetThuc}" class="form-control" />
+            <span class="text-danger" th:if="${thoiGianKetThucError}" th:text="${thoiGianKetThucError}"></span>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">File dính kèm </label>
+            <input type="file"  name="file" class="form-control"  accept="application/pdf"/>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Đơn vị chủ trì</label>
+            <select th:field="*{donViChuTri}" class="form-control" required>
+                <option value="">-- Chọn đơn vị --</option>
+                <option th:each="donvi : ${danhSachDonViChuTri}" th:value="${donvi.id}" th:text="${donvi.tenDonVi}"></option>
+            </select>
+        </div>
+        <input type="submit" value="Thêm" class="btn1 btn-primary1">
+        <button type="button" class="btn btn-secondary" onclick="cancelForm()">Quay lại</button>
+    </form>
+</div>
+<script>
+    function cancelForm() {
+        window.location = "/capdetai";
+    }
+</script>
+</body>
+</html>
