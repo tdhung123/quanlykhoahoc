@@ -1,7 +1,6 @@
 package com.donacuoikhoa.quanlykhoahoc.capdetai;
 
-import com.donacuoikhoa.quanlykhoahoc.khoa.Khoa;
-import com.donacuoikhoa.quanlykhoahoc.khoa.KhoaNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;

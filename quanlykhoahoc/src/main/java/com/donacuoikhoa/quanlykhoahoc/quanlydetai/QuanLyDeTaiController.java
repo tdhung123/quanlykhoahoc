@@ -116,7 +116,6 @@ public class QuanLyDeTaiController {
                 VaiTroDeTai vaitroChuTri = vaiTroDeTaiRepository.findByTenVaiTro("Cán bộ chủ trì");
                 VaiTroDeTai vaitroThamGia = vaiTroDeTaiRepository.findByTenVaiTro("Cán bộ tham gia");
 
-
                 if (canBoChuTri != null && canBoChuTri.length > 0) {
                     for (int i = 0; i < canBoChuTri.length; i++) {
                         int nguoiDungId = Integer.parseInt(canBoChuTri[i]);

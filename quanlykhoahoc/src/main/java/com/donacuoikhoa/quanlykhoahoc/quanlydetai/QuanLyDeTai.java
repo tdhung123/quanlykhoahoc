@@ -4,7 +4,7 @@ package com.donacuoikhoa.quanlykhoahoc.quanlydetai;
 import com.donacuoikhoa.quanlykhoahoc.detai.DeTai;
 import com.donacuoikhoa.quanlykhoahoc.nguoidung.NguoiDung;
 import com.donacuoikhoa.quanlykhoahoc.vaitrodetai.VaiTroDeTai;
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
